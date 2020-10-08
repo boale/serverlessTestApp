@@ -8,13 +8,17 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "serverless-finch": "^2.6.0",
+    "serverless": "^2.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "client:deploy": "serverless client deploy --no-config-change --no-policy-change --no-cors-change",
+    "client:build:deploy": "npm run build && npm run client:deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
