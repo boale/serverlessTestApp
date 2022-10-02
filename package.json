@@ -1,48 +1,17 @@
 {
-  "name": "rs-school-app",
+  "name": "serverless-node-aws-shop",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "serverless": "^2.6.0",
+    "serverless": "2.6.0",
     "serverless-finch": "^2.6.0",
     "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "client:deploy": "sls client deploy --no-config-change --no-policy-change --no-cors-change",
-    "client:deploy:nc": "npm run client:deploy -- --no-confirm",
-    "client:build:deploy": "npm run build && npm run client:deploy",
-    "client:build:deploy:nc": "npm run build && npm run client:deploy:nc",
-    "cloudfront:setup": "sls deploy",
+    "client:deploy": "sls client deploy --no-confirm --no-config-change --no-policy-change --no-cors-change",
+    "cloudfront:deploy": "sls deploy",
+    "cloudfront:remove": "sls remove",
     "cloudfront:domainInfo": "sls domainInfo",
-    "cloudfront:invalidateCache": "sls invalidateCloudFrontCache",
-    "cloudfront:build:deploy": "npm run client:build:deploy && npm run cloudfront:invalidateCache",
-    "cloudfront:build:deploy:nc": "npm run client:build:deploy:nc && npm run cloudfront:invalidateCache",
-    "cloudfront:update:build:deploy": "npm run cloudfront:setup && npm run cloudfront:build:deploy",
-    "cloudfront:update:build:deploy:nc": "npm run cloudfront:setup && npm run cloudfront:build:deploy:nc"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "cloudfront:invalidateCache": "sls invalidateCloudFrontCache"
   }
 }

@@ -11,20 +11,20 @@
 #
 # Happy Coding!
 
-service: rs-school-app
+service:
+  name: angular-shopping-project
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
 
-# You can pin your service to only deploy with a specific Serverless version
-# Check out our docs for more details
-frameworkVersion: '2'
+frameworkVersion: '2.6.0'
 
 provider:
   name: aws
   runtime: nodejs12.x
-  ## this is my personal AWS account. This must be skipped in you serverless.yml
-  profile: personalAccount
+  profile: default
+  deploymentMethod: direct
+  region: us-east-1
 
 plugins:
   - serverless-finch
@@ -33,13 +33,13 @@ plugins:
 custom:
   ## Serverless-finch configuration
   client:
-    bucketName: rs-school-app
+    bucketName: angular-shopping-project
     distributionFolder: build
     indexDocument: index.html
     manageResources: false
   ## Serverless-single-page-app-plugin configuration:
-  s3LocalPath: ${self:custom.client.distributionFolder}/
   s3BucketName: ${self:custom.client.bucketName}
+  s3LocalPath: ${self:custom.client.distributionFolder}/
 
 # you can overwrite defaults here
 #  stage: dev
